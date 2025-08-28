@@ -1129,15 +1129,60 @@ html {
     font-size: 0.9rem;
 }
 
+<<<<<<< HEAD
 /* Additional Responsive Styles */
 @media (max-width: 768px) {
     .community-content {
         grid-template-columns: 1fr;
+=======
+/* Comprehensive Responsive Design */
+
+/* Hide pixel monster on tablet and mobile */
+@media (max-width: 991px) {
+    .hero-visual {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* Tablet Landscape (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
+    .main-logo-text {
+        font-size: 5rem;
+    }
+
+    .title-brand {
+        font-size: 3rem;
+    }
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .community-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+>>>>>>> c5a53ef (edits)
         text-align: center;
     }
 
     .community-stats {
         justify-content: center;
+<<<<<<< HEAD
     }
 
     .join-title {
@@ -1152,12 +1197,187 @@ html {
 
     .features-grid {
         grid-template-columns: 1fr;
+=======
+        gap: 1.5rem;
+>>>>>>> c5a53ef (edits)
     }
 
     .owner-card {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+<<<<<<< HEAD
+=======
+        padding: 2.5rem;
+    }
+
+    .discord-preview {
+        max-width: 350px;
+    }
+}
+
+/* Mobile and Small Tablet (max 767px) */
+@media (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(15, 15, 35, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        right: 0;
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(107, 70, 193, 0.2);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hero {
+        padding: 2rem 0;
+        min-height: 90vh;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .main-logo-text {
+        font-size: 3.5rem;
+    }
+
+    .title-brand {
+        font-size: 2.2rem;
+    }
+
+    .title-line {
+        font-size: 1.1rem;
+    }
+
+    .title-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        margin: 1rem 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        max-width: 300px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-card,
+    .feature-item {
+        padding: 1.5rem;
+    }
+
+    .card-icon,
+    .feature-icon {
+        font-size: 2rem;
+    }
+
+    .about-card h3,
+    .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .community-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .community-stats {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .discord-preview {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .join-title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .join-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-join {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .owner-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+>>>>>>> c5a53ef (edits)
         padding: 2rem;
     }
 
@@ -1169,15 +1389,251 @@ html {
     .avatar-glow {
         width: 140px;
         height: 140px;
+<<<<<<< HEAD
         top: -10px;
         left: -10px;
+=======
+    }
+
+    .display-name {
+        font-size: 1.8rem;
+    }
+
+    .username {
+        font-size: 1rem;
+    }
+
+    .owner-badges {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    /* Background effects adjustments for mobile */
+    .color-blocks .block {
+        width: 40px;
+        height: 40px;
+    }
+
+    .pixel-grid {
+        background-size: 15px 15px;
+    }
+}
+
+/* Small Mobile (max 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .main-logo-text {
+        font-size: 2.8rem;
+    }
+
+    .title-brand {
+        font-size: 1.8rem;
+    }
+
+    .title-line {
+        font-size: 1rem;
+    }
+
+    .title-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .community-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .stat {
+        min-width: 80px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .join-title {
+        font-size: 1.8rem;
+    }
+
+    .owner-card {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .avatar-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .avatar-glow {
+        width: 120px;
+        height: 120px;
+>>>>>>> c5a53ef (edits)
     }
 
     .display-name {
         font-size: 1.5rem;
     }
 
+<<<<<<< HEAD
     .owner-badges {
         justify-content: center;
+=======
+    .username {
+        font-size: 0.9rem;
+    }
+
+    .owner-title {
+        font-size: 1rem;
+    }
+
+    .owner-description {
+        font-size: 0.9rem;
+    }
+
+    .badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+
+    .color-blocks .block {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Extra Small Mobile (max 320px) */
+@media (max-width: 320px) {
+    .main-logo-text {
+        font-size: 2.2rem;
+    }
+
+    .title-brand {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .owner-card {
+        padding: 1rem;
+    }
+
+    .avatar-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-glow {
+        width: 100px;
+        height: 100px;
+    }
+
+    .display-name {
+        font-size: 1.3rem;
+    }
+
+    .owner-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .badge {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+    .about-card:hover,
+    .feature-item:hover,
+    .owner-card:hover {
+        transform: none;
+    }
+
+    .about-card.touch-active,
+    .feature-item.touch-active,
+    .owner-card.touch-active {
+        transform: translateY(-5px);
+        border-color: var(--neon-purple);
+        box-shadow: 0 10px 30px rgba(107, 70, 193, 0.3);
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+
+    .btn:active {
+        transform: translateY(-2px) scale(0.98);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+
+    .hero-content {
+        gap: 2rem;
+    }
+
+    .main-logo-text {
+        font-size: 2.5rem;
+    }
+
+    .title-brand {
+        font-size: 1.8rem;
+    }
+
+    .section-padding {
+        padding: 3rem 0;
+>>>>>>> c5a53ef (edits)
     }
 }

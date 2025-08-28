@@ -1,0 +1,10 @@
+# Assets Directory
+
+This directory is reserved for future assets like:
+- Favicon files
+- Logo images
+- Background textures
+- Icon files
+- Other media assets
+
+Currently, the project uses CSS-generated graphics for optimal performance and loading speed.
