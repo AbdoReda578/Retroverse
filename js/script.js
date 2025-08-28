@@ -99,8 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    // Create floating pixels periodically
-    setInterval(createFloatingPixel, 2000);
+    // Create floating pixels periodically (less on mobile)
+    const isMobile = window.innerWidth <= 768;
+    const pixelInterval = isMobile ? 5000 : 2000; // Less frequent on mobile
+
+    if (!isMobile) {
+        setInterval(createFloatingPixel, pixelInterval);
+    }
 
     // Glitch effect enhancement
     function enhanceGlitchEffect() {
@@ -121,17 +126,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     enhanceGlitchEffect();
 
-    // Parallax effect for background elements
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.color-blocks .block');
-        
-        parallaxElements.forEach((element, index) => {
-            const speed = 0.5 + (index * 0.1);
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translateY(${yPos}px)`;
+    // Parallax effect for background elements (disabled on mobile for performance)
+    if (!isMobile) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.color-blocks .block');
+
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
         });
-    });
+    }
 
     // Button hover effects
     const buttons = document.querySelectorAll('.btn');
@@ -405,5 +412,74 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
+    // Mobile-specific optimizations
+    function optimizeForMobile() {
+        const isMobileDevice = window.innerWidth <= 768;
+        const isSmallMobile = window.innerWidth <= 480;
+
+        if (isMobileDevice) {
+            // Disable heavy animations on mobile
+            document.querySelectorAll('.glitch').forEach(element => {
+                element.style.animation = 'none';
+            });
+
+            // Reduce background effects
+            const colorBlocks = document.querySelectorAll('.color-blocks .block');
+            colorBlocks.forEach(block => {
+                block.style.opacity = '0.05';
+                block.style.animation = 'none';
+            });
+
+            // Disable pixel grid animation on small mobile
+            if (isSmallMobile) {
+                const pixelGrid = document.querySelector('.pixel-grid');
+                if (pixelGrid) {
+                    pixelGrid.style.animation = 'none';
+                    pixelGrid.style.opacity = '0.2';
+                }
+
+                // Hide pixel monster completely on small mobile
+                const heroVisual = document.querySelector('.hero-visual');
+                if (heroVisual) {
+                    heroVisual.style.display = 'none';
+                }
+            }
+        }
+    }
+
+    // Handle window resize for responsive behavior
+    function handleResize() {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            document.body.classList.add('mobile-view');
+            optimizeForMobile();
+        } else {
+            document.body.classList.remove('mobile-view');
+        }
+    }
+
+    // Initial mobile optimization
+    optimizeForMobile();
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+
+    // Touch gesture support for mobile
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.about-card, .feature-item, .owner-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            });
+
+            card.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.classList.remove('touch-active');
+                }, 300);
+            });
+        });
+    }
+
     console.log('🎮 Retroverse loaded successfully! Welcome to the future of retro gaming.');
+    console.log(`📱 Mobile optimizations: ${window.innerWidth <= 768 ? 'ENABLED' : 'DISABLED'}`);
 });
